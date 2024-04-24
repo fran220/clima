@@ -10,7 +10,7 @@ function validarCampos(e){
     const ciudad = document.querySelector('#ciudad').value;
     const pais = document.querySelector('#pais').value;
 
-    if(ciudad === "" && pais === ""){
+    if(ciudad === "" || pais === ""){
         mostrarError("ingrese los datos requeridos");
         return;
     }

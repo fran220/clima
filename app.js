@@ -1,7 +1,10 @@
 const resultado = document.querySelector('#resultado');
 const formulario = document.querySelector('#formulario');
+const select = document.querySelector('#pais');
 
 window.addEventListener('load', ()=>{
+
+    llenarSelect();
     formulario.addEventListener('submit', validarCampos)
 });
 
@@ -38,6 +41,8 @@ function obtenerClima(ciudad, pais){
 }
 
 function mostrarResultados(obj){
+
+    console.log(obj);
     const {name, main: {temp,temp_max,temp_min}, weather} = obj;
     const temperatura = KelvinACelcius(temp);
     const tempMax = KelvinACelcius(temp_max);
@@ -68,6 +73,30 @@ function mostrarResultados(obj){
     card.appendChild(textTempMin);
 
     resultado.appendChild(card);
+}
+
+function llenarSelect(){
+    const url = 'https://gist.githubusercontent.com/ssskip/5a94bfcd2835bf1dea52/raw/3b2e5355eb49336f0c6bc0060c05d927c2d1e004/ISO3166-1.alpha2.json';
+
+    fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(paises =>{
+            for(const p in paises){
+                insertarOption(paises[p], p);
+            } 
+        })
+        .catch(err => console.log(err))
+}
+
+function insertarOption(nombre, alfa){
+
+    const option = document.createElement('option');
+
+    option.textContent = nombre;
+    option.value = alfa;
+
+    select.appendChild(option);
+
 }
 
 function KelvinACelcius(tempK){

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/spinner.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1 id="titulo" class="titulo">Busca el Clima</h1>
+        <div class="">
+
+            <div class="">
+                <div id="resultado">
+                    <p class="">Agrega tu ciudad y país, el resultado se mostrará aquí</p>
+                </div>
+            </div>
+            
+            <form id="formulario" action="#" method="POST"> 
+                <div class="ipad">
+                    <input type="text" name="ciudad" id="ciudad" placeholder="Escribe tu Ciudad" class="input"/>
+                </div>
+                <div class="ipad">
+                    <select class="input" id="pais">
+                        <option disabled selected value="">-- Seleccione --</option>
+                        <option value="AR">Argentina</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="ES">España</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="MX">México</option>
+                        <option value="PE">Perú</option>
+                    </select>
+                </div>
+
+                <div class="center">
+                    <input type="submit" class="btnSubmit" value="ObtenerClima"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
